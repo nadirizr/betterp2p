@@ -116,15 +116,18 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.cc
 	$(CXX) $(CXXFLAGS) -MM -MT 4ROBIN_DEPS $^ -o $@
 	echo " $^" >> $@
 
-.PHONY : libtorrent install clean test
-libtorrent:
-	(cd $(LIBTORRENT_DIR); CC=$(CXX) python setup.py build)
-	$(CP) $(LIBTORRENT_LIBDIR)/$(LIBTORRENT_LIB) $(LIBDIR)
+.PHONY: libbp2p.pc
+libbp2p.pc:
+	echo 'Name: libbp2p' > $@
+	echo 'Description: BetterP2P Core Library' >> $@
+	echo 'Version: 0.9.0' >> $@
+	echo 'Libs: -L$(PWD)/build/lib -lbp2p' >> $@
+	echo 'Cflags: -I$(PWD)/src -I$(PWD)/src/libbp2p $(CXXFLAGS)' >> $@
+
+.PHONY : install clean test
 
 install: $(BP2P_OUTLIB) $(LIBTORRENT_OUTLIB)
 	$(CP) $(BP2P_OUTLIB) $(LIB_INSTALL_PATH)/lib
-	$(CP) $(LIBTORRENT_OUTLIB) $(PYM_INSTALL_PATH)
-	$(CP) -r $(LIBTORRENT_INCLUDE) $(LIB_INSTALL_PATH)/include
 
 clean:
 	rm -rf build
