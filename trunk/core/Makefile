@@ -93,6 +93,8 @@ SMOKETEST_OBJ = ${call |make-objects|,${call |make-source-files|,$(SMOKETEST_DIR
 
 
 # --- BUILD TARGETS --- #
+all: $(LIBDIR)/$(TARGET) libbp2p.pc ;
+
 $(LIBDIR)/$(TARGET) : $(BP2P_OUTLIB) $(SMOKETEST_OBJ)
 	$(CXX) $(LDFLAGS) -lbp2p -o $@ $(SMOKETEST_OBJ)
 
