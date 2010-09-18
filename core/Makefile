@@ -123,8 +123,8 @@ libbp2p.pc:
 	echo 'Name: libbp2p' > $@
 	echo 'Description: BetterP2P Core Library' >> $@
 	echo 'Version: 0.9.0' >> $@
-	echo 'Libs: -L$(PWD)/build/lib -lbp2p' >> $@
-	echo 'Cflags: -I$(PWD)/src -I$(PWD)/src/libbp2p $(CXXFLAGS)' >> $@
+	echo 'Libs: -L${abspath build/lib} -lbp2p' >> $@
+	echo 'Cflags: -I${abspath src} -I${abspath src/libbp2p} $(CXXFLAGS)' >> $@
 
 .PHONY : install clean test
 
