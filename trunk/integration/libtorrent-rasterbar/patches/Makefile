@@ -1,6 +1,9 @@
 
-PKG_CONFIG_PATH = $(PWD)/../../../core
+PWD := ${shell pwd}
 SYS_LD_LIBRARY_PATH := $(LD_LIBRARY_PATH)
+SYS_PKG_CONFIG_PATH := $(PKG_CONFIG_PATH)
+
+PKG_CONFIG_PATH = ${abspath ../../../core}:$(SYS_PKG_CONFIG_PATH)
 
 export PKG_CONFIG_PATH
 
@@ -10,7 +13,7 @@ LDFLAGS += ${wildcard $(PWD)/../plugin/*.a}
 CXXFLAGS = -I$(PWD)/..
 LD_LIBRARY_PATH = ${subst $(spc),:,${strip ${patsubst -L%,%,${filter -L%,$(LDFLAGS)}} $(SYS_LD_LIBRARY_PATH)}}
 
-.PHONY: libtorrent ext/libtorrent-rasterbar-0.14.4 libtorrent+bp2p
+.PHONY: libtorrent
 libtorrent:
 	( cd libtorrent+libbp2p && grep -l -r 'XXX: BP2P' . ) | tee .patched.filelist
 	for fn in `cat .patched.filelist`; do echo $$fn; mkdir -p `dirname libtorrent/$$fn`; cp libtorrent+libbp2p/$$fn libtorrent/$$fn; done
