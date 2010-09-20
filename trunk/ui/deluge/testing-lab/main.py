@@ -9,6 +9,7 @@ presses Ctrl+C on the terminal - in which case all spawned processes are killed.
 
 import os
 import shutil
+import time
 from subprocess import Popen
 
 
@@ -73,6 +74,7 @@ class ProcessSitter(object):
 
 	def _monitor_processes(self):
 		while self.processes:
+			time.sleep(0.5)
 			self.processes = self._poll(self.processes)
 
 	def _poll(self, processlist):
