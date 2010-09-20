@@ -12,10 +12,10 @@ CP = cp -f
 INCLUDE_PATH = src/libbp2p
 EXT_PATH = ext
 BOOST_INCLUDE_PATH ?= -I/usr/local/include/boost-1_36 -I/usr/include/boost
-INCLUDES = -I${INCLUDE_PATH} -I/opt/local/include ${BOOST_INCLUDE_PATH}
+INCLUDES = -I${INCLUDE_PATH} -I/opt/local/include/. ${BOOST_INCLUDE_PATH}
 CXXFLAGS = $(INCLUDES) -g -O0 -Wall
 
-LDFLAGS = -L$(LIBDIR) -L/opt/local/lib
+LDFLAGS = -L$(LIBDIR) -L/opt/local/lib/.
 BOOST_LIBS = -lboost_filesystem-mt -lboost_serialization-mt -lboost_system-mt -lboost_thread-mt
 LOG4CPP_LIBS = -llog4cpp
 LDFLAGS += $(BOOST_LIBS) $(LOG4CPP_LIBS)
