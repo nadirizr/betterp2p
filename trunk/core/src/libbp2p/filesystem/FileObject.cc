@@ -69,11 +69,11 @@ FileObject::FileObject(const MetaData& metadata, FileObject::FileState state)
     }
     else if (state == INCOMPLETE) {
         cerr << "// creating incomplete file '" << m_metadata->fileName << "'" << endl;
-        cerr << "// m_metafile = " << (int)m_metafile << endl;
+        cerr << "// m_metafile = " << (void*)m_metafile << endl;
     }
     else if (state == COMPLETE) {
         cerr << "// creating complete file '" << m_metadata->fileName << "'" << endl;
-        cerr << "// m_metafile = " << (int)m_metafile << endl;
+        cerr << "// m_metafile = " << (void*)m_metafile << endl;
         m_metadata->fileSize = getFilesSize();
         for (size_t i = 0; i < m_metadata->containedFiles.size(); ++i) {
             m_metadata->containedFiles[i].size = getFileSize(i);
