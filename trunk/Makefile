@@ -15,6 +15,8 @@ ALL_PACKAGES = ${foreach p,$(BOOST_PACKAGES),libboost-$p-dev} \
                ${foreach p,$(PYTHON_PACKAGES),python-$p} \
                $(OTHER_PACKAGES)
 
+RUNTIME_REQ = libboost-filesystem1.40.0,libboost-thread1.40.0,libboost-python1.40.0,libboost-serialization1.40.0,liblog4cpp5,libssl0.9.8'"(>=0.9.8)"'
+
 prerequisites:
 	sudo apt-get install $(ALL_PACKAGES)
 
@@ -30,7 +32,9 @@ install:
 	$(MAKE) -C ui/deluge install
 
 deb:
-	sudo checkinstall --backup=no --deldoc=yes --delspec=yes --deldesc=yes
+	echo "BetterP2P client based on libtorrent and Deluge" > description-pak
+	sudo checkinstall --backup=no --deldoc=yes --delspec=yes --deldesc=yes\
+	          --requires=$(RUNTIME_REQ)
 	sudo chown $(USER) ./*.deb
 
 # Notice:
