@@ -25,6 +25,7 @@ SO_EXT = so
 ifeq ($(UNAME),Darwin)
 	LDSHARED = g++ -dynamiclib
 	SO_EXT = dylib
+	BOOST_INCLUDE_PATH = # boost is installed in /opt/local/include via MacPorts
 	BOOST_LIBS = -lboost_filesystem-mt -lboost_serialization-mt -lboost_system-mt -lboost_thread-mt
 endif
 GRIFFIN_SCRIPT ?= griffin
