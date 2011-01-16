@@ -6,7 +6,7 @@ default: patch-for-multiple-instances ;
 unpack:
 	tar xf ext/deluge-1.1.9.tar.gz
 
-UNAME = ${shell uname -s}
+UNAME := $(shell uname -s)
 
 # sed inplace with no backup for GNU sed
 SED_INPLACE = sed -i

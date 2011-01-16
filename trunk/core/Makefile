@@ -3,7 +3,7 @@
 |make-objects| = ${foreach f,${patsubst %.cc,%.o,$1},${OBJDIR}/${f}}
 |filter-so|	= ${filter-out %.$(SO_EXT),$1}
 
-UNAME = ${shell uname -s}
+UNAME := $(shell uname -s)
 
 CXX = g++
 LDSHARED = $(CXX) -shared
