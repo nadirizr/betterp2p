@@ -1,0 +1,26 @@
+# Compiled Object files
+*.slo
+*.lo
+*.o
+
+# Compiled Dynamic libraries
+*.so
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+
+# VIM swap files
+.*.swp
+
+# ctags
+/tags
+
+# project-specific
+core/build
+core/libbp2p.pc
+integration/libtorrent-rasterbar/patches/libtorrent+bp2p/
+integration/libtorrent-rasterbar/patches/libtorrent-rasterbar-0.14.4/
+ui/deluge/.patched.filelist
+ui/deluge/deluge-1.1.9/
