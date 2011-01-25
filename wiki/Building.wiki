@@ -1,0 +1,14 @@
+#summary Build checklist
+
+= OS/X =
+
+Prerequisites:
+ * [http://developer.apple.com/tools/xcode/ Xcode]
+ * !MacPorts
+ * boost: {{{sudo port install boost}}}
+ * log4cpp {{{sudo port install log4cpp}}}
+
+build:
+{{{
+make build-all
+}}}
