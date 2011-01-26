@@ -12,3 +12,9 @@ build:
 {{{
 make build-all
 }}}
+
+= Windows =
+
+Work in progress (doesn't work yet)
+ * [http://www.slurdge.org/deluge-on-windows building deluge on Windows]
+ * [http://nuwen.net/mingw.html mingw + Boost for windows]
